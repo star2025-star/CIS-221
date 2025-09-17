@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>registration</title>
+<body>
+<form action="/submit" method="post" enctype="multipart/form-data">
+  <h2>User Registration</h2>
+
+  Full name:<br>
+  <input type="text" id="fullname" name="fullname"
+value="Enter your full name"" max length"20"/><br><br>
+ password:<br>
+  <input type="password" name="password"
+value="enter your password" max length"10"/><br><br>
+
+  Email:<br>
+  <input type="email" name="email"
+value="enter your email"max length"10"/><br><br>
+
+  Age:<br>
+  <input type="number" id="age" name="age"
+value="Enter your age" min="1" max="120"><br><br>
+
+  Date:<br>
+  <label for="dob">Date of Birth:</label>
+  <input type="date" id="dob" name="dob"><br><br>
+
+  Time:<br>
+  <label for="appt">Preferred Time:</label>
+  <input type="time" id="appt" name="appt"><br><br>
+
+  Tel:<br>
+  <label for="phone">Phone Number:</label>
+  <input type="tel" id="phone" name="phone"><br><br>
+
+  URL:<br>
+  <label for="website">Website:</label>
+  <input type="url" id="website" name="website"><br><br>
+Gender:<br>
+  <input type="radio" name="gender" value="Male">
+male<br>
+  <input type="radio" name="gender" value="Female">
+female<br>
+Subjects:<br>
+  <input type="checkbox" name="subjects1" value="mathematics">
+  mathematics<br>
+  <input type="checkbox" name="subjects2" value="english">
+  english<br>
+  <input type="checkbox" name="subjects3" value="computer studies">
+  computer studies<br>
+  <input type="checkbox" name="subjects4" value="physics">
+  physics<br>
+   <input type="checkbox" name="subjects5" value="history">
+  History<br>
+
+Origin:<br>
+  <select name="origin">
+    <option>Kenya</option>
+    <option>Uganda</option>
+    <option>Tanzania</option>
+  </select><br><br>
+status:<br>
+  <textarea name="bio" rows="4" cols="50">
+  write your bio here</textarea><br><br>
+sports:<br>
+  <input type="checkbox" name="sports1" value="soccer">
+soccer<br>
+    <input type="checkbox" name="sports2" value="athletics">
+athletics<br>
+  <input type="checkbox" name="sports" value="swimming">
+swimming<br>
+
+  <input type="hidden" name="form_id" value="reg123"><br>
+<br>
+
+  <input type="submit" value="Register">
+  <input type="reset" value="Clear Form">
+</form>
+</body>
+</html>
+
