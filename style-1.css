@@ -1,0 +1,110 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Header styling */
+header {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+/* Product section */
+.Products {
+  margin-bottom: 40px;
+}
+
+.Products h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.Products-grid {
+  display: inline-block;
+  width: 30%;
+  margin: 1%;
+  padding: 15px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.Products-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Offers section */
+.OFFERS h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.OFFERS table {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+.OFFERS th, .OFFERS td {
+  padding: 15px;
+  border: 1px solid #cccccc;
+}
+
+.OFFERS th {
+  background-color: #eeeeee;
+  font-weight: bold;
+}
+
+/* Benefits section */
+.BENEFITS h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.BENEFITS ul {
+  list-style-type: square;
+  padding-left: 40px;
+  font-size: 1.1em;
+}
+
+/* Footer styling */
+footer {
+  background-color: #222;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 1em;
+}
