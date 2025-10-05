@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fashion Store – Part 2 (Inventory Tracker)</title>
+<style>
+body{font-family:Arial, sans-serif;background:#f9fafb;color:#222;margin:0;padding:0}
+header{background:#0d6efd;color:#fff;text-align:center;padding:1rem}
+main{max-width:900px;margin:20px auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
+h2{color:#0d6efd}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #ddd;padding:8px;text-align:center}
+th{background:#0d6efd;color:#fff}
+button{background:#198754;color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer}
+button:hover{opacity:.9}
+input[type=number],input[type=text]{padding:6px;width:90px;border:1px solid #ccc;border-radius:4px}
+footer{text-align:center;padding:12px;background:#222;color:#fff;margin-top:20px}
+</style>
+</head>
+<body>
+<header>
+  <h1>FASHION STORE INVENTORY</h1>
+  <p>Track bought, sold, stock & revenue</p>
+</header>
+
+<main>
+  <section>
+    <h2>Inventory Table</h2>
+    <table id="inventory">
+      <thead>
+        <tr>
+          <th>Item</th><th>Price</th><th>Bought</th>
+          <th>Sold</th><th>Stock</th><th>Revenue</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Add New Item</h3>
+    <input type="text" id="name" placeholder="Item name">
+    <input type="number" id="price" placeholder="Price">
+    <input type="number" id="bought" placeholder="Bought qty">
+    <button onclick="addItem()">Add</button>
+  </section>
+</main>
+
+<footer>&copy; THANK YOU FOR SHOPPING WITH US – GOD BLESS YOU</footer>
+
+<script>
+let items = JSON.parse(localStorage.getItem('inventory')||'[]');
+const tbody=document.querySelector('#inventory tbody');
+
+function save(){localStorage.setItem('inventory',JSON.stringify(items));}
+function render(){
+  tbody.innerHTML='';
+  items.forEach((it,i)=>{
+    const tr=document.createElement('tr');
+    const stock=it.bought-it.sold;
+    tr.innerHTML=`
+      <td>${it.name}</td><td>${it.price}</td>
+      <td>${it.bought}</td><td>${it.sold}</td>
+      <td>${stock}</td><td>${it.revenue}</td>
+      <td>
+        <input type="number" min="1" value="1" id="q${i}" style="width:60px">
+        <button onclick="sell(${i})">Sell</button>
+        <button onclick="buy(${i})">Buy</button>
+      </td>`;
+    tbody.appendChild(tr);
+  });
+}
+function addItem(){
+  const name=document.getElementById('name').value.trim();
+  const price=+document.getElementById('price').value;
+  const bought=+document.getElementById('bought').value;
+  if(!name||!price)return alert('Enter name & price');
+  items.push({name,price,bought,sold:0,revenue:0});
+  save();render();
+  document.getElementById('name').value='';
+  document.getElementById('price').value='';
+  document.getElementById('bought').value='';
+}
+function sell(i){
+  const qty=+document.getElementById('q'+i).value;
+  const it=items[i];
+  if(qty>it.bought-it.sold)return alert('Not enough stock');
+  it.sold+=qty;it.revenue+=qty*it.price;
+  save();render();
+}
+function buy(i){
+  const qty=+document.getElementById('q'+i).value;
+  items[i].bought+=qty;save();render();
+}
+
+if(items.length===0){
+  items=[
+    {name:'Cool Shirt',price:1200,bought:50,sold:10,revenue:12000},
+    {name:'Official Trouser',price:1800,bought:40,sold:5,revenue:9000},
+    {name:'Men Shoes',price:2500,bought:30,sold:8,revenue:20000}
+  ];
+  save();
+}
+render();
+</script>
+</body>
+</html>
